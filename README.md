@@ -15,7 +15,7 @@ the pump's own cloud connection keep working; several clients can be logged in a
 
 | Device | Read | Control | Tested firmware |
 |---|---|---|---|
-| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / tide), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); **every control listed here was confirmed on a real pump** (see below) |
+| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / cross-flow), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); **every control listed here was confirmed on a real pump** (see below) |
 | DC Runner x.3 return / skimmer pump (`00276aa0…`) | on/off, control mode, speed, feed pause and its duration, timer, current timer mode, timer slots, pump clock, fault flags | **none - read only** | **untested** - decoded from the public datapoint schema; no write is sent until a DC Runner owner confirms it, testers welcome |
 
 Writing timer slots (the 48-slot schedule) is not offered yet; the slots are shown as attributes
@@ -44,12 +44,13 @@ included. Using it may void your warranty.
 
 ## Installation
 
-[![Open your Home Assistant instance and add this repository to HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=patrickk88&repository=aquamedic-local&category=integration)
+**HACS (recommended):** open HACS in Home Assistant, search for **Aqua Medic Local**, download it and
+restart Home Assistant. The button opens it in HACS directly:
 
-**HACS:** the button adds this repository to HACS in your own Home Assistant (as a custom
-repository, type *Integration*); then download *Aqua Medic Local* and restart Home Assistant.
-Without the button: HACS -> menu -> *Custom repositories* -> `https://github.com/patrickk88/aquamedic-local`,
-type *Integration*.
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=patrickk88&repository=aquamedic-local&category=integration)
+
+If you added it as a *custom repository* before it was in the HACS default list, you can remove that
+entry (HACS -> menu -> *Custom repositories*); the installed integration stays.
 
 **Manual:** copy `custom_components/aquamedic_local` into your `config/custom_components/` and restart.
 
