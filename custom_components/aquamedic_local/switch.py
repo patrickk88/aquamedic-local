@@ -19,7 +19,7 @@ class PumpSwitchDescription(SwitchEntityDescription):
 
 SWITCHES = (
     PumpSwitchDescription(key="power", translation_key="power", icon="mdi:pump"),
-    PumpSwitchDescription(key="feed", translation_key="feed", icon="mdi:fish", attrs=("feed_time",)),
+    PumpSwitchDescription(key="feed", translation_key="feed", icon="mdi:fish", attrs=("feed_time", "feed_end")),
     PumpSwitchDescription(key="timer", translation_key="timer", icon="mdi:timer-outline", attrs=("auto_mode", "schedule")),
 )
 

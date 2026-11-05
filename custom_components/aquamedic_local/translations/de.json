@@ -14,17 +14,33 @@
         "data": {
           "host": "IP-Adresse oder Hostname"
         }
+      },
+      "discovery_confirm": {
+        "title": "Aqua-Medic-Pumpe gefunden",
+        "description": "{name} wurde unter {host} gefunden. Einrichten? Den Passcode holt sich die Integration von der Pumpe. Inoffizielle Integration - Nutzung auf eigene Gefahr."
+      },
+      "reconfigure": {
+        "title": "Adresse der Pumpe ändern",
+        "description": "Neue IP-Adresse oder neuer Hostname von {name}. Normalerweise nicht nötig: Die Integration findet eine Pumpe unter neuer Adresse innerhalb von etwa 10 Minuten selbst.",
+        "data": {
+          "host": "IP-Adresse oder Hostname"
+        }
       }
     },
     "error": {
       "cannot_connect": "Keine Verbindung zur Pumpe (TCP-Port 12416).",
       "login_failed": "Die Pumpe hat die Anmeldung abgelehnt.",
       "needs_binding": "Die Pumpe gibt ihren Passcode nicht heraus. Pumpe kurz stromlos machen oder die WLAN-Taste kurz drücken, dann erneut versuchen.",
-      "unsupported": "Das ist ein Gizwits-Gerät, aber keine bekannte Aqua-Medic-Pumpe."
+      "unsupported": "Das ist ein Gizwits-Gerät, aber keine bekannte Aqua-Medic-Pumpe.",
+      "wrong_device": "Unter dieser Adresse antwortet eine andere Pumpe."
     },
     "abort": {
-      "already_configured": "Diese Pumpe ist schon eingerichtet."
-    }
+      "already_configured": "Diese Pumpe ist schon eingerichtet.",
+      "already_in_progress": "Diese Pumpe wird bereits eingerichtet.",
+      "reconfigure_successful": "Adresse geändert, die Pumpe verbindet sich neu.",
+      "unsupported": "Das ist keine unterstützte Aqua-Medic-Pumpe."
+    },
+    "flow_title": "{name} ({host})"
   },
   "selector": {
     "pump": {
@@ -110,6 +126,9 @@
       },
       "device_time": {
         "name": "Pumpenuhr"
+      },
+      "feed_end": {
+        "name": "Futterpause endet"
       }
     },
     "binary_sensor": {

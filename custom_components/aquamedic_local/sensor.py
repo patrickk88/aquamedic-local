@@ -34,6 +34,10 @@ SENSORS = (
         attrs=("auto_speed", "auto_feed_time"), products=(pr.PRODUCT_DC_RUNNER,),
     ),
     PumpSensorDescription(
+        key="feed_end", translation_key="feed_end", icon="mdi:timer-sand", device_class=SensorDeviceClass.TIMESTAMP,
+        value_fn=lambda d: d.get("feed_end"),
+    ),
+    PumpSensorDescription(
         key="schedule", translation_key="schedule", icon="mdi:calendar-multiselect",
         value_fn=lambda d: len(d.get("schedule", [])), attrs=("schedule",), entity_category=EntityCategory.DIAGNOSTIC,
     ),

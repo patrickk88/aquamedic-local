@@ -11,7 +11,7 @@ it speaks a small LAN protocol (UDP 12414 for discovery, TCP 12416 for control) 
 the app uses when your phone is at home. This integration talks to that port only. The app and
 the pump's own cloud connection keep working; several clients can be logged in at once.
 
-## Supported devices (v0.1)
+## Supported devices (v0.2)
 
 | Device | Read | Control | Tested firmware |
 |---|---|---|---|
@@ -57,7 +57,13 @@ no app account, no cloud.
 If the pump refuses to hand out its passcode ("not in binding mode"), power-cycle it or press its
 Wi-Fi button briefly and try again within a few minutes. Once stored, the passcode stays valid.
 
-Give each pump a fixed IP address in your router; the integration reconnects by address.
+Once one pump is set up, the integration searches the network every 10 minutes (and when a pump
+goes offline): further pumps appear under *Discovered*, and a known pump that got a new IP address is
+found again and its entry updated automatically. A fixed address in the router is still a good idea.
+To change the address by hand: entry -> menu -> *Reconfigure*.
+
+*Download diagnostics* (entry menu) gives a JSON file with the decoded and raw status (passcode, MAC and
+device id removed) - please attach it to issues. The interface is available in English, German, Dutch, French, Spanish, Italian and Polish.
 
 ## Entities
 
@@ -65,7 +71,8 @@ Give each pump a fixed IP address in your router; the integration reconnects by 
 - **Wave mode** (select) - classic, sine, random wave, constant.
 - **Wave form** (select) - pulse or tide (used by the classic mode).
 - **Flow**, **Frequency** (number, %) - the current manual setting.
-- **Feed pause** (switch) with **Feed pause duration** (number, 1-60 min).
+- **Feed pause** (switch) with **Feed pause duration** (number, 1-60 min) and **Feed pause ends**
+  (timestamp, calculated when the pause starts).
 - **Timer** (switch) - run the pump's own 48-slot schedule instead of the manual setting; attributes
   show the slots. **Timer mode now** (sensor) shows what the schedule is doing right now.
 - **Linkage** (select) - independent, master or slave (the pumps' own 2.4 GHz coupling).

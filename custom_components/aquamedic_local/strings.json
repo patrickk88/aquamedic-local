@@ -14,17 +14,33 @@
         "data": {
           "host": "IP address or hostname"
         }
+      },
+      "discovery_confirm": {
+        "title": "Aqua Medic pump found",
+        "description": "{name} was found at {host}. Set it up? The passcode is fetched from the pump. Unofficial integration - use at your own risk."
+      },
+      "reconfigure": {
+        "title": "Change pump address",
+        "description": "New IP address or hostname of {name}. Normally not needed: the integration finds a pump at a new address by itself within about 10 minutes.",
+        "data": {
+          "host": "IP address or hostname"
+        }
       }
     },
     "error": {
       "cannot_connect": "Cannot connect to the pump (TCP port 12416).",
       "login_failed": "The pump refused the login.",
       "needs_binding": "The pump did not hand out its passcode. Power-cycle the pump or press its Wi-Fi button briefly, then try again.",
-      "unsupported": "This is a Gizwits device, but not a known Aqua Medic pump."
+      "unsupported": "This is a Gizwits device, but not a known Aqua Medic pump.",
+      "wrong_device": "A different pump answers at this address."
     },
     "abort": {
-      "already_configured": "This pump is already set up."
-    }
+      "already_configured": "This pump is already set up.",
+      "already_in_progress": "This pump is already being set up.",
+      "reconfigure_successful": "Address changed, the pump is reconnecting.",
+      "unsupported": "This is not a supported Aqua Medic pump."
+    },
+    "flow_title": "{name} ({host})"
   },
   "selector": {
     "pump": {
@@ -110,6 +126,9 @@
       },
       "device_time": {
         "name": "Pump clock"
+      },
+      "feed_end": {
+        "name": "Feed pause ends"
       }
     },
     "binary_sensor": {
