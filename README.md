@@ -36,12 +36,20 @@ included. Using it may void your warranty.
 
 ## Installation
 
-**HACS:** add `https://github.com/patrickk88/aquamedic-local` as a custom repository (type
-*Integration*), install *Aqua Medic Local*, restart Home Assistant.
+[![Open your Home Assistant instance and add this repository to HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=patrickk88&repository=aquamedic-local&category=integration)
+
+**HACS:** the button adds this repository to HACS in your own Home Assistant (as a custom
+repository, type *Integration*); then download *Aqua Medic Local* and restart Home Assistant.
+Without the button: HACS -> menu -> *Custom repositories* -> `https://github.com/patrickk88/aquamedic-local`,
+type *Integration*.
 
 **Manual:** copy `custom_components/aquamedic_local` into your `config/custom_components/` and restart.
 
-Then *Settings -> Devices & services -> Add integration -> Aqua Medic Local*. Pumps on your network
+Then *Settings -> Devices & services -> Add integration -> Aqua Medic Local*, or:
+
+[![Open your Home Assistant instance and start setting up this integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=aquamedic_local)
+
+Pumps on your network
 are listed; pick one. If none is found (different subnet, broadcast blocked), enter the IP address
 of the pump's Wi-Fi module. The passcode the pump needs for login is fetched from the pump itself -
 no app account, no cloud.
