@@ -1,0 +1,161 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Bomba Aqua Medic",
+        "description": "Integración no oficial, no creada ni respaldada por Aqua Medic. Úsala bajo tu propia responsabilidad. Se muestran las bombas encontradas en tu red; el código de acceso se obtiene de la propia bomba.",
+        "data": {
+          "pump": "Bomba"
+        }
+      },
+      "manual": {
+        "title": "Introducir la dirección de la bomba",
+        "description": "Ninguna bomba respondió a la búsqueda en la red. Introduce la dirección IP del módulo Wi-Fi de la bomba (consúltala en tu router). Integración no oficial - úsala bajo tu propia responsabilidad.",
+        "data": {
+          "host": "Dirección IP o nombre de host"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Bomba Aqua Medic encontrada",
+        "description": "Se encontró {name} en {host}. ¿Quieres configurarla? El código de acceso se obtiene de la bomba. Integración no oficial - úsala bajo tu propia responsabilidad."
+      },
+      "reconfigure": {
+        "title": "Cambiar la dirección de la bomba",
+        "description": "Nueva dirección IP o nombre de host de {name}. Normalmente no es necesario: la integración encuentra por sí sola una bomba en una dirección nueva en unos 10 minutos.",
+        "data": {
+          "host": "Dirección IP o nombre de host"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No se puede conectar con la bomba (puerto TCP 12416).",
+      "login_failed": "La bomba rechazó el inicio de sesión.",
+      "needs_binding": "La bomba no entregó su código de acceso. Desconecta la bomba de la corriente y vuelve a conectarla, o pulsa brevemente su botón Wi-Fi; luego inténtalo de nuevo.",
+      "unsupported": "Es un dispositivo Gizwits, pero no una bomba Aqua Medic conocida.",
+      "wrong_device": "En esta dirección responde otra bomba."
+    },
+    "abort": {
+      "already_configured": "Esta bomba ya está configurada.",
+      "already_in_progress": "Esta bomba ya se está configurando.",
+      "reconfigure_successful": "Dirección cambiada, la bomba se está reconectando.",
+      "unsupported": "No es una bomba Aqua Medic compatible."
+    },
+    "flow_title": "{name} ({host})"
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "Introducir la dirección IP manualmente"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Bomba"
+      },
+      "feed": {
+        "name": "Pausa de alimentación"
+      },
+      "timer": {
+        "name": "Temporizador"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Modo de oleaje",
+        "state": {
+          "classic": "Clásico",
+          "sine": "Sinusoidal",
+          "random": "Oleaje aleatorio",
+          "constant": "Constante"
+        }
+      },
+      "wave_form": {
+        "name": "Forma de onda",
+        "state": {
+          "pulse": "Pulso",
+          "tide": "Marea"
+        }
+      },
+      "linkage": {
+        "name": "Vinculación",
+        "state": {
+          "independent": "Independiente",
+          "master": "Maestro",
+          "slave": "Esclavo"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Caudal"
+      },
+      "frequency": {
+        "name": "Frecuencia"
+      },
+      "speed": {
+        "name": "Velocidad"
+      },
+      "feed_time": {
+        "name": "Duración de la pausa de alimentación"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Modo actual del temporizador",
+        "state": {
+          "off": "Apagado",
+          "classic": "Clásico",
+          "sine": "Sinusoidal",
+          "random": "Oleaje aleatorio",
+          "constant": "Constante",
+          "feed": "Alimentación",
+          "auto": "Automático"
+        }
+      },
+      "schedule": {
+        "name": "Franjas del temporizador"
+      },
+      "control": {
+        "name": "Modo de control",
+        "state": {
+          "ap": "AP",
+          "wireless": "Inalámbrico"
+        }
+      },
+      "device_time": {
+        "name": "Reloj de la bomba"
+      },
+      "feed_end": {
+        "name": "Fin de la pausa de alimentación"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Fallo"
+      },
+      "fault_overcurrent": {
+        "name": "Sobrecorriente del motor"
+      },
+      "fault_overvoltage": {
+        "name": "Sobretensión del motor"
+      },
+      "fault_overtemperature": {
+        "name": "Sobretemperatura"
+      },
+      "fault_undervoltage": {
+        "name": "Subtensión del motor"
+      },
+      "fault_locked_rotor": {
+        "name": "Rotor bloqueado"
+      },
+      "fault_no_load": {
+        "name": "Sin carga (funcionamiento en seco)"
+      },
+      "fault_module_link": {
+        "name": "Enlace del módulo"
+      }
+    }
+  }
+}

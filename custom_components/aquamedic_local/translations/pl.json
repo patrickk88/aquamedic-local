@@ -1,0 +1,161 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pompa Aqua Medic",
+        "description": "Nieoficjalna integracja, nietworzona ani niepopierana przez Aqua Medic. Używasz na własne ryzyko. Wyświetlane są pompy znalezione w Twojej sieci; kod dostępu jest pobierany bezpośrednio z pompy.",
+        "data": {
+          "pump": "Pompa"
+        }
+      },
+      "manual": {
+        "title": "Wprowadź adres pompy",
+        "description": "Żadna pompa nie odpowiedziała na wyszukiwanie w sieci. Wprowadź adres IP modułu Wi-Fi pompy (sprawdź w routerze). Nieoficjalna integracja - używasz na własne ryzyko.",
+        "data": {
+          "host": "Adres IP lub nazwa hosta"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Znaleziono pompę Aqua Medic",
+        "description": "Znaleziono pompę {name} pod adresem {host}. Czy chcesz ją skonfigurować? Kod dostępu zostanie pobrany z pompy. Nieoficjalna integracja - używasz na własne ryzyko."
+      },
+      "reconfigure": {
+        "title": "Zmień adres pompy",
+        "description": "Nowy adres IP lub nazwa hosta dla {name}. Zwykle niepotrzebne: integracja sama znajdzie pompę pod nowym adresem w ciągu około 10 minut.",
+        "data": {
+          "host": "Adres IP lub nazwa hosta"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nie można połączyć się z pompą (port TCP 12416).",
+      "login_failed": "Pompa odrzuciła logowanie.",
+      "needs_binding": "Pompa nie przekazała kodu dostępu. Na chwilę odłącz pompę od zasilania lub krótko naciśnij jej przycisk Wi-Fi, a następnie spróbuj ponownie.",
+      "unsupported": "To urządzenie Gizwits, ale nie jest to znana pompa Aqua Medic.",
+      "wrong_device": "Pod tym adresem odpowiada inna pompa."
+    },
+    "abort": {
+      "already_configured": "Ta pompa jest już skonfigurowana.",
+      "already_in_progress": "Konfiguracja tej pompy jest już w toku.",
+      "reconfigure_successful": "Adres zmieniony, pompa łączy się ponownie.",
+      "unsupported": "To nie jest obsługiwana pompa Aqua Medic."
+    },
+    "flow_title": "{name} ({host})"
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "Wprowadź adres IP ręcznie"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pompa"
+      },
+      "feed": {
+        "name": "Pauza na karmienie"
+      },
+      "timer": {
+        "name": "Harmonogram"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Tryb fali",
+        "state": {
+          "classic": "Klasyczny",
+          "sine": "Sinusoidalny",
+          "random": "Fala losowa",
+          "constant": "Stały"
+        }
+      },
+      "wave_form": {
+        "name": "Kształt fali",
+        "state": {
+          "pulse": "Impuls",
+          "tide": "Pływy"
+        }
+      },
+      "linkage": {
+        "name": "Sprzężenie pomp",
+        "state": {
+          "independent": "Niezależna",
+          "master": "Nadrzędna",
+          "slave": "Podrzędna"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Przepływ"
+      },
+      "frequency": {
+        "name": "Częstotliwość"
+      },
+      "speed": {
+        "name": "Prędkość"
+      },
+      "feed_time": {
+        "name": "Czas pauzy na karmienie"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Bieżący tryb harmonogramu",
+        "state": {
+          "off": "Wyłączony",
+          "classic": "Klasyczny",
+          "sine": "Sinusoidalny",
+          "random": "Fala losowa",
+          "constant": "Stały",
+          "feed": "Karmienie",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Przedziały harmonogramu"
+      },
+      "control": {
+        "name": "Tryb sterowania",
+        "state": {
+          "ap": "AP",
+          "wireless": "Bezprzewodowy"
+        }
+      },
+      "device_time": {
+        "name": "Zegar pompy"
+      },
+      "feed_end": {
+        "name": "Koniec pauzy na karmienie"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Usterka"
+      },
+      "fault_overcurrent": {
+        "name": "Przetężenie silnika"
+      },
+      "fault_overvoltage": {
+        "name": "Przepięcie silnika"
+      },
+      "fault_overtemperature": {
+        "name": "Przegrzanie"
+      },
+      "fault_undervoltage": {
+        "name": "Podnapięcie silnika"
+      },
+      "fault_locked_rotor": {
+        "name": "Zablokowany wirnik"
+      },
+      "fault_no_load": {
+        "name": "Brak obciążenia (praca na sucho)"
+      },
+      "fault_module_link": {
+        "name": "Połączenie z modułem"
+      }
+    }
+  }
+}

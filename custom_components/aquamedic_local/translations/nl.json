@@ -1,0 +1,161 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aqua Medic-pomp",
+        "description": "Onofficiële integratie, niet gemaakt of goedgekeurd door Aqua Medic. Gebruik op eigen risico. Pompen die in je netwerk zijn gevonden, worden hier weergegeven; de toegangscode wordt uit de pomp zelf opgehaald.",
+        "data": {
+          "pump": "Pomp"
+        }
+      },
+      "manual": {
+        "title": "Pompadres invoeren",
+        "description": "Geen pomp heeft gereageerd op het zoeken in het netwerk. Voer het IP-adres van de wifi-module van de pomp in (zie je router). Onofficiële integratie - gebruik op eigen risico.",
+        "data": {
+          "host": "IP-adres of hostnaam"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Aqua Medic-pomp gevonden",
+        "description": "{name} is gevonden op {host}. Wil je deze instellen? De toegangscode wordt uit de pomp opgehaald. Onofficiële integratie - gebruik op eigen risico."
+      },
+      "reconfigure": {
+        "title": "Pompadres wijzigen",
+        "description": "Nieuw IP-adres of nieuwe hostnaam van {name}. Normaal gesproken niet nodig: de integratie vindt een pomp op een nieuw adres binnen ongeveer 10 minuten vanzelf.",
+        "data": {
+          "host": "IP-adres of hostnaam"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Kan geen verbinding maken met de pomp (TCP-poort 12416).",
+      "login_failed": "De pomp heeft de aanmelding geweigerd.",
+      "needs_binding": "De pomp gaf zijn toegangscode niet vrij. Haal de stroom even van de pomp of druk kort op de wifi-knop en probeer het daarna opnieuw.",
+      "unsupported": "Dit is een Gizwits-apparaat, maar geen bekende Aqua Medic-pomp.",
+      "wrong_device": "Op dit adres antwoordt een andere pomp."
+    },
+    "abort": {
+      "already_configured": "Deze pomp is al ingesteld.",
+      "already_in_progress": "Deze pomp wordt al ingesteld.",
+      "reconfigure_successful": "Adres gewijzigd, de pomp maakt opnieuw verbinding.",
+      "unsupported": "Dit is geen ondersteunde Aqua Medic-pomp."
+    },
+    "flow_title": "{name} ({host})"
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "IP-adres handmatig invoeren"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pomp"
+      },
+      "feed": {
+        "name": "Voerpauze"
+      },
+      "timer": {
+        "name": "Timer"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Golfmodus",
+        "state": {
+          "classic": "Klassiek",
+          "sine": "Sinus",
+          "random": "Willekeurige golf",
+          "constant": "Constant"
+        }
+      },
+      "wave_form": {
+        "name": "Golfvorm",
+        "state": {
+          "pulse": "Puls",
+          "tide": "Getij"
+        }
+      },
+      "linkage": {
+        "name": "Koppeling",
+        "state": {
+          "independent": "Onafhankelijk",
+          "master": "Master",
+          "slave": "Slave"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Stroming"
+      },
+      "frequency": {
+        "name": "Frequentie"
+      },
+      "speed": {
+        "name": "Snelheid"
+      },
+      "feed_time": {
+        "name": "Duur voerpauze"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Huidige timermodus",
+        "state": {
+          "off": "Uit",
+          "classic": "Klassiek",
+          "sine": "Sinus",
+          "random": "Willekeurige golf",
+          "constant": "Constant",
+          "feed": "Voeren",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Tijdsloten"
+      },
+      "control": {
+        "name": "Bedieningsmodus",
+        "state": {
+          "ap": "AP",
+          "wireless": "Draadloos"
+        }
+      },
+      "device_time": {
+        "name": "Pompklok"
+      },
+      "feed_end": {
+        "name": "Einde voerpauze"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Storing"
+      },
+      "fault_overcurrent": {
+        "name": "Motor overstroom"
+      },
+      "fault_overvoltage": {
+        "name": "Motor overspanning"
+      },
+      "fault_overtemperature": {
+        "name": "Overtemperatuur"
+      },
+      "fault_undervoltage": {
+        "name": "Motor onderspanning"
+      },
+      "fault_locked_rotor": {
+        "name": "Rotor geblokkeerd"
+      },
+      "fault_no_load": {
+        "name": "Geen belasting (drooglopen)"
+      },
+      "fault_module_link": {
+        "name": "Moduleverbinding"
+      }
+    }
+  }
+}

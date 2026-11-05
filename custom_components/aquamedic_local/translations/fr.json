@@ -1,0 +1,161 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pompe Aqua Medic",
+        "description": "Intégration non officielle, ni créée ni approuvée par Aqua Medic. Utilisation à vos risques et périls. Les pompes trouvées sur votre réseau sont listées ; le code d'accès est récupéré directement depuis la pompe.",
+        "data": {
+          "pump": "Pompe"
+        }
+      },
+      "manual": {
+        "title": "Saisir l'adresse de la pompe",
+        "description": "Aucune pompe n'a répondu à la recherche réseau. Saisissez l'adresse IP du module Wi-Fi de la pompe (voir votre routeur). Intégration non officielle - utilisation à vos risques et périls.",
+        "data": {
+          "host": "Adresse IP ou nom d'hôte"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Pompe Aqua Medic trouvée",
+        "description": "La pompe {name} a été trouvée à l'adresse {host}. Voulez-vous la configurer ? Le code d'accès est récupéré depuis la pompe. Intégration non officielle - utilisation à vos risques et périls."
+      },
+      "reconfigure": {
+        "title": "Modifier l'adresse de la pompe",
+        "description": "Nouvelle adresse IP ou nouveau nom d'hôte de {name}. Normalement inutile : l'intégration retrouve d'elle-même une pompe à sa nouvelle adresse en 10 minutes environ.",
+        "data": {
+          "host": "Adresse IP ou nom d'hôte"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossible de se connecter à la pompe (port TCP 12416).",
+      "login_failed": "La pompe a refusé l'authentification.",
+      "needs_binding": "La pompe n'a pas fourni son code d'accès. Coupez puis rétablissez l'alimentation de la pompe ou appuyez brièvement sur son bouton Wi-Fi, puis réessayez.",
+      "unsupported": "Il s'agit d'un appareil Gizwits, mais pas d'une pompe Aqua Medic connue.",
+      "wrong_device": "Une autre pompe répond à cette adresse."
+    },
+    "abort": {
+      "already_configured": "Cette pompe est déjà configurée.",
+      "already_in_progress": "Cette pompe est déjà en cours de configuration.",
+      "reconfigure_successful": "Adresse modifiée, la pompe se reconnecte.",
+      "unsupported": "Il ne s'agit pas d'une pompe Aqua Medic prise en charge."
+    },
+    "flow_title": "{name} ({host})"
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "Saisir l'adresse IP manuellement"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pompe"
+      },
+      "feed": {
+        "name": "Pause nourrissage"
+      },
+      "timer": {
+        "name": "Programmateur"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Mode de vague",
+        "state": {
+          "classic": "Classique",
+          "sine": "Sinusoïdal",
+          "random": "Vague aléatoire",
+          "constant": "Constant"
+        }
+      },
+      "wave_form": {
+        "name": "Forme de vague",
+        "state": {
+          "pulse": "Pulsé",
+          "tide": "Marée"
+        }
+      },
+      "linkage": {
+        "name": "Couplage",
+        "state": {
+          "independent": "Indépendant",
+          "master": "Maître",
+          "slave": "Esclave"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Débit"
+      },
+      "frequency": {
+        "name": "Fréquence"
+      },
+      "speed": {
+        "name": "Vitesse"
+      },
+      "feed_time": {
+        "name": "Durée de la pause nourrissage"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Mode actuel du programmateur",
+        "state": {
+          "off": "Arrêt",
+          "classic": "Classique",
+          "sine": "Sinusoïdal",
+          "random": "Vague aléatoire",
+          "constant": "Constant",
+          "feed": "Nourrissage",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Plages du programmateur"
+      },
+      "control": {
+        "name": "Mode de contrôle",
+        "state": {
+          "ap": "AP",
+          "wireless": "Sans fil"
+        }
+      },
+      "device_time": {
+        "name": "Horloge de la pompe"
+      },
+      "feed_end": {
+        "name": "Fin de la pause nourrissage"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Défaut"
+      },
+      "fault_overcurrent": {
+        "name": "Surintensité moteur"
+      },
+      "fault_overvoltage": {
+        "name": "Surtension moteur"
+      },
+      "fault_overtemperature": {
+        "name": "Surchauffe"
+      },
+      "fault_undervoltage": {
+        "name": "Sous-tension moteur"
+      },
+      "fault_locked_rotor": {
+        "name": "Rotor bloqué"
+      },
+      "fault_no_load": {
+        "name": "Fonctionnement à vide (à sec)"
+      },
+      "fault_module_link": {
+        "name": "Liaison du module"
+      }
+    }
+  }
+}

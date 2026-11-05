@@ -1,0 +1,161 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pompa Aqua Medic",
+        "description": "Integrazione non ufficiale, non realizzata né approvata da Aqua Medic. Usala a tuo rischio. Vengono elencate le pompe trovate nella rete; il passcode viene letto dalla pompa stessa.",
+        "data": {
+          "pump": "Pompa"
+        }
+      },
+      "manual": {
+        "title": "Inserisci l'indirizzo della pompa",
+        "description": "Nessuna pompa ha risposto alla ricerca in rete. Inserisci l'indirizzo IP del modulo Wi-Fi della pompa (vedi il router). Integrazione non ufficiale - usala a tuo rischio.",
+        "data": {
+          "host": "Indirizzo IP o nome host"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Pompa Aqua Medic trovata",
+        "description": "{name} è stata trovata all'indirizzo {host}. Vuoi configurarla? Il passcode viene letto dalla pompa. Integrazione non ufficiale - usala a tuo rischio."
+      },
+      "reconfigure": {
+        "title": "Cambia indirizzo della pompa",
+        "description": "Nuovo indirizzo IP o nome host di {name}. Di solito non serve: l'integrazione trova da sola una pompa con un nuovo indirizzo entro circa 10 minuti.",
+        "data": {
+          "host": "Indirizzo IP o nome host"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Impossibile connettersi alla pompa (porta TCP 12416).",
+      "login_failed": "La pompa ha rifiutato l'accesso.",
+      "needs_binding": "La pompa non ha fornito il suo passcode. Spegni e riaccendi la pompa o premi brevemente il suo pulsante Wi-Fi, poi riprova.",
+      "unsupported": "Questo è un dispositivo Gizwits, ma non una pompa Aqua Medic conosciuta.",
+      "wrong_device": "A questo indirizzo risponde un'altra pompa."
+    },
+    "abort": {
+      "already_configured": "Questa pompa è già configurata.",
+      "already_in_progress": "La configurazione di questa pompa è già in corso.",
+      "reconfigure_successful": "Indirizzo cambiato, la pompa si sta riconnettendo.",
+      "unsupported": "Questa non è una pompa Aqua Medic supportata."
+    },
+    "flow_title": "{name} ({host})"
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "Inserisci manualmente l'indirizzo IP"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pompa"
+      },
+      "feed": {
+        "name": "Pausa alimentazione"
+      },
+      "timer": {
+        "name": "Timer"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Modalità onda",
+        "state": {
+          "classic": "Classica",
+          "sine": "Sinusoidale",
+          "random": "Onda casuale",
+          "constant": "Costante"
+        }
+      },
+      "wave_form": {
+        "name": "Forma d'onda",
+        "state": {
+          "pulse": "Impulso",
+          "tide": "Marea"
+        }
+      },
+      "linkage": {
+        "name": "Collegamento",
+        "state": {
+          "independent": "Indipendente",
+          "master": "Master",
+          "slave": "Slave"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Flusso"
+      },
+      "frequency": {
+        "name": "Frequenza"
+      },
+      "speed": {
+        "name": "Velocità"
+      },
+      "feed_time": {
+        "name": "Durata pausa alimentazione"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Modalità timer attuale",
+        "state": {
+          "off": "Spento",
+          "classic": "Classica",
+          "sine": "Sinusoidale",
+          "random": "Onda casuale",
+          "constant": "Costante",
+          "feed": "Alimentazione",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Fasce orarie timer"
+      },
+      "control": {
+        "name": "Modalità di controllo",
+        "state": {
+          "ap": "AP",
+          "wireless": "Wireless"
+        }
+      },
+      "device_time": {
+        "name": "Orologio pompa"
+      },
+      "feed_end": {
+        "name": "Fine pausa alimentazione"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Guasto"
+      },
+      "fault_overcurrent": {
+        "name": "Sovracorrente motore"
+      },
+      "fault_overvoltage": {
+        "name": "Sovratensione motore"
+      },
+      "fault_overtemperature": {
+        "name": "Sovratemperatura"
+      },
+      "fault_undervoltage": {
+        "name": "Sottotensione motore"
+      },
+      "fault_locked_rotor": {
+        "name": "Rotore bloccato"
+      },
+      "fault_no_load": {
+        "name": "Nessun carico (funzionamento a secco)"
+      },
+      "fault_module_link": {
+        "name": "Collegamento modulo"
+      }
+    }
+  }
+}
