@@ -1,0 +1,142 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aqua-Medic-Pumpe",
+        "description": "Inoffizielle Integration, nicht von Aqua Medic. Nutzung auf eigene Gefahr. Gefundene Pumpen im Netz werden aufgelistet; den Passcode holt sich die Integration von der Pumpe.",
+        "data": {
+          "pump": "Pumpe"
+        }
+      },
+      "manual": {
+        "title": "Adresse der Pumpe eingeben",
+        "description": "Keine Pumpe hat auf die Netzsuche geantwortet. IP-Adresse des WLAN-Moduls eingeben (siehe Router). Inoffizielle Integration - Nutzung auf eigene Gefahr.",
+        "data": {
+          "host": "IP-Adresse oder Hostname"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Keine Verbindung zur Pumpe (TCP-Port 12416).",
+      "login_failed": "Die Pumpe hat die Anmeldung abgelehnt.",
+      "needs_binding": "Die Pumpe gibt ihren Passcode nicht heraus. Pumpe kurz stromlos machen oder die WLAN-Taste kurz drücken, dann erneut versuchen.",
+      "unsupported": "Das ist ein Gizwits-Gerät, aber keine bekannte Aqua-Medic-Pumpe."
+    },
+    "abort": {
+      "already_configured": "Diese Pumpe ist schon eingerichtet."
+    }
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "IP-Adresse von Hand eingeben"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pumpe"
+      },
+      "feed": {
+        "name": "Futterpause"
+      },
+      "timer": {
+        "name": "Zeitplan"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Wellenmodus",
+        "state": {
+          "classic": "Klassisch",
+          "sine": "Sinus",
+          "random": "Zufallswelle",
+          "constant": "Konstant"
+        }
+      },
+      "wave_form": {
+        "name": "Wellenform",
+        "state": {
+          "pulse": "Puls",
+          "tide": "Tide"
+        }
+      },
+      "linkage": {
+        "name": "Kopplung",
+        "state": {
+          "independent": "Unabhängig",
+          "master": "Master",
+          "slave": "Slave"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Strömung"
+      },
+      "frequency": {
+        "name": "Frequenz"
+      },
+      "speed": {
+        "name": "Leistung"
+      },
+      "feed_time": {
+        "name": "Futterpause Dauer"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Zeitplan aktueller Modus",
+        "state": {
+          "off": "Aus",
+          "classic": "Klassisch",
+          "sine": "Sinus",
+          "random": "Zufallswelle",
+          "constant": "Konstant",
+          "feed": "Fütterung",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Zeitfenster"
+      },
+      "control": {
+        "name": "Steuerung",
+        "state": {
+          "ap": "AP",
+          "wireless": "Wireless"
+        }
+      },
+      "device_time": {
+        "name": "Pumpenuhr"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Störung"
+      },
+      "fault_overcurrent": {
+        "name": "Motor Überstrom"
+      },
+      "fault_overvoltage": {
+        "name": "Motor Überspannung"
+      },
+      "fault_overtemperature": {
+        "name": "Übertemperatur"
+      },
+      "fault_undervoltage": {
+        "name": "Motor Unterspannung"
+      },
+      "fault_locked_rotor": {
+        "name": "Rotor blockiert"
+      },
+      "fault_no_load": {
+        "name": "Leerlauf (Trockenlauf)"
+      },
+      "fault_module_link": {
+        "name": "Modulverbindung"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "aquamedic_local",
+  "name": "Aqua Medic Local (unofficial)",
+  "codeowners": [
+    "@patrickk88"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/patrickk88/aquamedic-local",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/patrickk88/aquamedic-local/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}

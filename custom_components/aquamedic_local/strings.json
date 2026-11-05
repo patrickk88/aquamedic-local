@@ -1,0 +1,142 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Aqua Medic pump",
+        "description": "Unofficial integration, not made or endorsed by Aqua Medic. Use at your own risk. Pumps found on your network are listed; the passcode is fetched from the pump itself.",
+        "data": {
+          "pump": "Pump"
+        }
+      },
+      "manual": {
+        "title": "Enter pump address",
+        "description": "No pump answered the network search. Enter the IP address of the pump's Wi-Fi module (see your router). Unofficial integration - use at your own risk.",
+        "data": {
+          "host": "IP address or hostname"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the pump (TCP port 12416).",
+      "login_failed": "The pump refused the login.",
+      "needs_binding": "The pump did not hand out its passcode. Power-cycle the pump or press its Wi-Fi button briefly, then try again.",
+      "unsupported": "This is a Gizwits device, but not a known Aqua Medic pump."
+    },
+    "abort": {
+      "already_configured": "This pump is already set up."
+    }
+  },
+  "selector": {
+    "pump": {
+      "options": {
+        "manual": "Enter IP address manually"
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "power": {
+        "name": "Pump"
+      },
+      "feed": {
+        "name": "Feed pause"
+      },
+      "timer": {
+        "name": "Timer"
+      }
+    },
+    "select": {
+      "mode": {
+        "name": "Wave mode",
+        "state": {
+          "classic": "Classic",
+          "sine": "Sine",
+          "random": "Random wave",
+          "constant": "Constant"
+        }
+      },
+      "wave_form": {
+        "name": "Wave form",
+        "state": {
+          "pulse": "Pulse",
+          "tide": "Tide"
+        }
+      },
+      "linkage": {
+        "name": "Linkage",
+        "state": {
+          "independent": "Independent",
+          "master": "Master",
+          "slave": "Slave"
+        }
+      }
+    },
+    "number": {
+      "flow": {
+        "name": "Flow"
+      },
+      "frequency": {
+        "name": "Frequency"
+      },
+      "speed": {
+        "name": "Speed"
+      },
+      "feed_time": {
+        "name": "Feed pause duration"
+      }
+    },
+    "sensor": {
+      "auto_mode": {
+        "name": "Timer mode now",
+        "state": {
+          "off": "Off",
+          "classic": "Classic",
+          "sine": "Sine",
+          "random": "Random wave",
+          "constant": "Constant",
+          "feed": "Feed",
+          "auto": "Auto"
+        }
+      },
+      "schedule": {
+        "name": "Timer slots"
+      },
+      "control": {
+        "name": "Control mode",
+        "state": {
+          "ap": "AP",
+          "wireless": "Wireless"
+        }
+      },
+      "device_time": {
+        "name": "Pump clock"
+      }
+    },
+    "binary_sensor": {
+      "fault": {
+        "name": "Fault"
+      },
+      "fault_overcurrent": {
+        "name": "Motor overcurrent"
+      },
+      "fault_overvoltage": {
+        "name": "Motor overvoltage"
+      },
+      "fault_overtemperature": {
+        "name": "Overtemperature"
+      },
+      "fault_undervoltage": {
+        "name": "Motor undervoltage"
+      },
+      "fault_locked_rotor": {
+        "name": "Locked rotor"
+      },
+      "fault_no_load": {
+        "name": "No load (dry run)"
+      },
+      "fault_module_link": {
+        "name": "Module link"
+      }
+    }
+  }
+}
