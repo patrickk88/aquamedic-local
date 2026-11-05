@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1 - 2026-11-05
+- Wave form "tide" is shown as "Cross-flow" - the name the Aqua Medic app uses for alternating linked pumps.
+- README: linking two pumps (master / slave), synchronous and cross-flow operation, both confirmed on an
+  EcoDrift 8.3 with a 4.3.
+
 ## 0.3.0 - 2026-11-05
 - DC Runner is now read only: no write is sent to it until its writes are confirmed on a real pump. Pump,
   feed pause and timer appear as binary sensors, speed and feed pause duration as sensors.

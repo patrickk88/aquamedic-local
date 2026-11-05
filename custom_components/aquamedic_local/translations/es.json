@@ -75,7 +75,7 @@
         "name": "Forma de onda",
         "state": {
           "pulse": "Pulso",
-          "tide": "Marea"
+          "tide": "Alterno (cross-flow)"
         }
       },
       "linkage": {

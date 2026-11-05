@@ -75,7 +75,7 @@
         "name": "Wave form",
         "state": {
           "pulse": "Pulse",
-          "tide": "Tide"
+          "tide": "Cross-flow (tide)"
         }
       },
       "linkage": {

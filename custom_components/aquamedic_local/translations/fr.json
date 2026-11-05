@@ -75,7 +75,7 @@
         "name": "Forme de vague",
         "state": {
           "pulse": "Pulsé",
-          "tide": "Marée"
+          "tide": "Alterné (cross-flow)"
         }
       },
       "linkage": {

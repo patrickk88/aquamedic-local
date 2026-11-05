@@ -75,7 +75,7 @@
         "name": "Kształt fali",
         "state": {
           "pulse": "Impuls",
-          "tide": "Pływy"
+          "tide": "Naprzemiennie (cross-flow)"
         }
       },
       "linkage": {

@@ -24,7 +24,8 @@ of the *Timer* switch and the *Timer slots* sensor.
 **Only confirmed writes are sent.** Each EcoDrift control above was switched on a real EcoDrift 8.3
 (Wi-Fi module 04020B25) through this integration and back, and counted as confirmed only when the pump
 reported the new value in its own status: pump on/off, flow, frequency, feed pause, feed pause duration
-(04.-05.11.2026), wave mode, wave form, timer on/off and linkage (05.11.2026). The DC Runner has no
+(04.-05.11.2026), wave mode, wave form, timer on/off and linkage (05.11.2026); linked operation - synchronous
+and cross-flow - on an EcoDrift 8.3 (master) with a 4.3 (slave), 05.11.2026. The DC Runner has no
 write path at all; its switches and numbers appear as read-only sensors. If you own one and want to help,
 open an issue.
 
@@ -76,7 +77,7 @@ device id removed) - please attach it to issues. The interface is available in E
 
 - **Pump** (switch) - on/off.
 - **Wave mode** (select) - classic, sine, random wave, constant.
-- **Wave form** (select) - pulse or tide (used by the classic mode).
+- **Wave form** (select) - pulse or cross-flow (state `tide`, used by the classic mode; see *Linking two pumps*).
 - **Flow**, **Frequency** (number, %) - the current manual setting.
 - **Feed pause** (switch) with **Feed pause duration** (number, 1-60 min) and **Feed pause ends**
   (timestamp, calculated when the pause starts).
@@ -87,7 +88,22 @@ device id removed) - please attach it to issues. The interface is available in E
   locked rotor, no load (dry run), module link. The seven flags are also available as individual
   diagnostic binary sensors (disabled by default).
 
-State values are keys (`random`, `tide`, `independent` ...); the UI translates them (English, German).
+State values are keys (`random`, `tide`, `independent` ...); the UI translates them.
+
+## Linking two pumps (master / slave)
+
+Tested with an EcoDrift 8.3 as master and a 4.3 as slave:
+
+- Set *Linkage* to **master** on one pump and to **slave** on the others - only one master per tank. The
+  pumps couple by themselves; Home Assistant only sets the role. The pump displays show Master / Slave.
+- **Synchronous:** the slaves run the master's program at the same time. Change wave mode, wave form and
+  frequency on the master only; a slave takes them over within seconds and reports them. Flow stays per pump.
+- **Alternating (cross-flow):** on the master set *Wave mode* to **classic** and *Wave form* to
+  **cross-flow**; the pumps then take turns. The master's *Frequency* sets how long a turn lasts - a low
+  value means short turns (at 5 % they clearly alternated within two minutes, at 100 % no change was
+  visible within six minutes). It can take up to three turns until the pumps find their rhythm. The pumps
+  do not report which one is running, so Home Assistant cannot show the current turn.
+- To undo, set every pump back to **independent**.
 
 ## Known quirks
 

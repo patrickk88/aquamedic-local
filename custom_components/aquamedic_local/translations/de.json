@@ -75,7 +75,7 @@
         "name": "Wellenform",
         "state": {
           "pulse": "Puls",
-          "tide": "Tide"
+          "tide": "Wechselbetrieb (Cross-flow)"
         }
       },
       "linkage": {
