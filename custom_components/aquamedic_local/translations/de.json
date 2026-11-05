@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Frequenz"
       },
-      "speed": {
-        "name": "Leistung"
-      },
       "feed_time": {
         "name": "Futterpause Dauer"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Futterpause endet"
+      },
+      "speed": {
+        "name": "Leistung"
+      },
+      "feed_time": {
+        "name": "Futterpause Dauer"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Modulverbindung"
+      },
+      "power": {
+        "name": "Pumpe"
+      },
+      "feed": {
+        "name": "Futterpause"
+      },
+      "timer": {
+        "name": "Zeitplan"
       }
     }
   }

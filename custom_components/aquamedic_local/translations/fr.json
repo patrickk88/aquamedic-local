@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Fréquence"
       },
-      "speed": {
-        "name": "Vitesse"
-      },
       "feed_time": {
         "name": "Durée de la pause nourrissage"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Fin de la pause nourrissage"
+      },
+      "speed": {
+        "name": "Vitesse"
+      },
+      "feed_time": {
+        "name": "Durée de la pause nourrissage"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Liaison du module"
+      },
+      "power": {
+        "name": "Pompe"
+      },
+      "feed": {
+        "name": "Pause nourrissage"
+      },
+      "timer": {
+        "name": "Programmateur"
       }
     }
   }

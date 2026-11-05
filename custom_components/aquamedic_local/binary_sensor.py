@@ -20,9 +20,31 @@ FAULTS = tuple(
 )
 
 
+# read-only products (DC Runner): what the EcoDrift exposes as switches
+STATE_FLAGS = (
+    BinarySensorEntityDescription(key="power", translation_key="power", device_class=BinarySensorDeviceClass.RUNNING),
+    BinarySensorEntityDescription(key="feed", translation_key="feed", icon="mdi:fish"),
+    BinarySensorEntityDescription(key="timer", translation_key="timer", icon="mdi:timer-outline"),
+)
+
+
 async def async_setup_entry(hass: HomeAssistant, entry: PumpConfigEntry, add: AddEntitiesCallback) -> None:
     c = entry.runtime_data
-    add([PumpFault(c), *(PumpFaultFlag(c, d) for d in FAULTS)])
+    ents: list[BinarySensorEntity] = [PumpFault(c), *(PumpFaultFlag(c, d) for d in FAULTS)]
+    if c.product_key not in pr.WRITE_MAP:
+        ents += [PumpStateFlag(c, d) for d in STATE_FLAGS]
+    add(ents)
+
+
+class PumpStateFlag(PumpEntity, BinarySensorEntity):
+    def __init__(self, coordinator, description: BinarySensorEntityDescription) -> None:
+        super().__init__(coordinator, f"state_{description.key}")
+        self.entity_description = description
+
+    @property
+    def is_on(self) -> bool | None:
+        v = self.data.get(self.entity_description.key)
+        return None if v is None else bool(v)
 
 
 class PumpFault(PumpEntity, BinarySensorEntity):

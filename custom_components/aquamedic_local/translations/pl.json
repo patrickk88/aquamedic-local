@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Częstotliwość"
       },
-      "speed": {
-        "name": "Prędkość"
-      },
       "feed_time": {
         "name": "Czas pauzy na karmienie"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Koniec pauzy na karmienie"
+      },
+      "speed": {
+        "name": "Prędkość"
+      },
+      "feed_time": {
+        "name": "Czas pauzy na karmienie"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Połączenie z modułem"
+      },
+      "power": {
+        "name": "Pompa"
+      },
+      "feed": {
+        "name": "Pauza na karmienie"
+      },
+      "timer": {
+        "name": "Harmonogram"
       }
     }
   }

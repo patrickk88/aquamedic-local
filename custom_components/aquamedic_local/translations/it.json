@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Frequenza"
       },
-      "speed": {
-        "name": "Velocità"
-      },
       "feed_time": {
         "name": "Durata pausa alimentazione"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Fine pausa alimentazione"
+      },
+      "speed": {
+        "name": "Velocità"
+      },
+      "feed_time": {
+        "name": "Durata pausa alimentazione"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Collegamento modulo"
+      },
+      "power": {
+        "name": "Pompa"
+      },
+      "feed": {
+        "name": "Pausa alimentazione"
+      },
+      "timer": {
+        "name": "Timer"
       }
     }
   }

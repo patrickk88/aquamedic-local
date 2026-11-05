@@ -121,8 +121,14 @@ def test_dc_runner():
     assert d["power"] and d["control"] == "wireless" and d["auto_mode"] == "auto" and d["speed"] == 80
     assert d["device_date"] == "2026-11-05" and d["device_time"] == "07:30:15"
     assert d["schedule"] == [{"slot": 0, "start": "08:00", "end": "20:30", "mode": "auto", "speed": 70}]
-    flags, data = pr.encode_values(pr.PRODUCT_DC_RUNNER, {"speed": 50}, base=bytes(status))
-    assert flags == (1 << 5).to_bytes(8, "big") and data[1] == 50 and len(data) == 301
+    # read only: no write path for the DC Runner until its writes are confirmed on hardware
+    try:
+        pr.encode_values(pr.PRODUCT_DC_RUNNER, {"speed": 50}, base=bytes(status))
+    except pr.ProtocolError:
+        pass
+    else:
+        raise AssertionError("DC Runner must be read only")
+    assert pr.PRODUCT_DC_RUNNER not in pr.WRITE_MAP and pr.PRODUCT_ECODRIFT in pr.WRITE_MAP
 
 
 if __name__ == "__main__":

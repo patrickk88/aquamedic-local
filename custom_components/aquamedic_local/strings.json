@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Frequency"
       },
-      "speed": {
-        "name": "Speed"
-      },
       "feed_time": {
         "name": "Feed pause duration"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Feed pause ends"
+      },
+      "speed": {
+        "name": "Speed"
+      },
+      "feed_time": {
+        "name": "Feed pause duration"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Module link"
+      },
+      "power": {
+        "name": "Pump"
+      },
+      "feed": {
+        "name": "Feed pause"
+      },
+      "timer": {
+        "name": "Timer"
       }
     }
   }

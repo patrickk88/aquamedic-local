@@ -9,6 +9,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
 from . import PumpConfigEntry
+from . import protocol as pr
 from .entity import PumpEntity
 
 
@@ -25,7 +26,9 @@ SWITCHES = (
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: PumpConfigEntry, add: AddEntitiesCallback) -> None:
-    add(PumpSwitch(entry.runtime_data, d) for d in SWITCHES)
+    c = entry.runtime_data
+    if c.product_key in pr.WRITE_MAP:  # read-only products (DC Runner) get binary sensors instead
+        add(PumpSwitch(c, d) for d in SWITCHES)
 
 
 class PumpSwitch(PumpEntity, SwitchEntity):

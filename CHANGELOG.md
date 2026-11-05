@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0 - 2026-11-05
+- DC Runner is now read only: no write is sent to it until its writes are confirmed on a real pump. Pump,
+  feed pause and timer appear as binary sensors, speed and feed pause duration as sensors.
+- EcoDrift: wave mode, wave form, timer on/off and linkage confirmed on a real EcoDrift 8.3 (the pump
+  reported each new value); with pump on/off, flow, frequency, feed pause and its duration, every
+  EcoDrift control is now confirmed. README lists this.
+- README: timer note - turning the timer off keeps the flow the timer slot set.
+
 ## 0.2.0 - 2026-11-05
 - Automatic discovery: after the first pump is set up, the network is searched every 10 minutes and when a
   pump goes offline; new pumps appear under "Discovered", known pumps follow a changed IP address by themselves.

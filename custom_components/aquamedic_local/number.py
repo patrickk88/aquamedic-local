@@ -15,7 +15,7 @@ from .entity import PumpEntity
 
 @dataclass(frozen=True, kw_only=True)
 class PumpNumberDescription(NumberEntityDescription):
-    products: tuple[str, ...] = (pr.PRODUCT_ECODRIFT, pr.PRODUCT_DC_RUNNER)
+    products: tuple[str, ...] = (pr.PRODUCT_ECODRIFT,)  # DC Runner: read only, see sensor.py
 
 
 NUMBERS = (
@@ -26,10 +26,6 @@ NUMBERS = (
     PumpNumberDescription(
         key="frequency", translation_key="frequency", icon="mdi:metronome", native_min_value=0, native_max_value=100,
         native_step=1, native_unit_of_measurement=PERCENTAGE, mode=NumberMode.SLIDER, products=(pr.PRODUCT_ECODRIFT,),
-    ),
-    PumpNumberDescription(
-        key="speed", translation_key="speed", icon="mdi:speedometer", native_min_value=0, native_max_value=100,
-        native_step=1, native_unit_of_measurement=PERCENTAGE, mode=NumberMode.SLIDER, products=(pr.PRODUCT_DC_RUNNER,),
     ),
     PumpNumberDescription(
         key="feed_time", translation_key="feed_time", icon="mdi:timer-sand", native_min_value=1, native_max_value=60,

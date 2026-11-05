@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from typing import Any
 
 from homeassistant.components.sensor import SensorDeviceClass, SensorEntity, SensorEntityDescription
-from homeassistant.const import EntityCategory
+from homeassistant.const import PERCENTAGE, EntityCategory, UnitOfTime
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 
@@ -40,6 +40,14 @@ SENSORS = (
     PumpSensorDescription(
         key="schedule", translation_key="schedule", icon="mdi:calendar-multiselect",
         value_fn=lambda d: len(d.get("schedule", [])), attrs=("schedule",), entity_category=EntityCategory.DIAGNOSTIC,
+    ),
+    PumpSensorDescription(
+        key="speed", translation_key="speed", icon="mdi:speedometer", native_unit_of_measurement=PERCENTAGE,
+        value_fn=lambda d: d.get("speed"), products=(pr.PRODUCT_DC_RUNNER,),
+    ),
+    PumpSensorDescription(
+        key="feed_time", translation_key="feed_time", icon="mdi:timer-sand", native_unit_of_measurement=UnitOfTime.MINUTES,
+        value_fn=lambda d: d.get("feed_time"), products=(pr.PRODUCT_DC_RUNNER,),
     ),
     PumpSensorDescription(
         key="control", translation_key="control", icon="mdi:remote", device_class=SensorDeviceClass.ENUM,

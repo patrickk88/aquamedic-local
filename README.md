@@ -11,15 +11,22 @@ it speaks a small LAN protocol (UDP 12414 for discovery, TCP 12416 for control) 
 the app uses when your phone is at home. This integration talks to that port only. The app and
 the pump's own cloud connection keep working; several clients can be logged in at once.
 
-## Supported devices (v0.2)
+## Supported devices (v0.3)
 
 | Device | Read | Control | Tested firmware |
 |---|---|---|---|
-| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / tide), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); writing tested with pump on/off, flow, frequency, feed pause and feed pause duration |
-| DC Runner x.3 return / skimmer pump (`00276aa0…`) | on/off, control mode, speed, feed pause, timer, current timer mode, timer slots, pump clock, fault flags | pump on/off, speed, feed pause, feed pause duration, timer on/off | **untested** - decoded from the public datapoint schema, testers welcome |
+| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / tide), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); **every control listed here was confirmed on a real pump** (see below) |
+| DC Runner x.3 return / skimmer pump (`00276aa0…`) | on/off, control mode, speed, feed pause and its duration, timer, current timer mode, timer slots, pump clock, fault flags | **none - read only** | **untested** - decoded from the public datapoint schema; no write is sent until a DC Runner owner confirms it, testers welcome |
 
 Writing timer slots (the 48-slot schedule) is not offered yet; the slots are shown as attributes
 of the *Timer* switch and the *Timer slots* sensor.
+
+**Only confirmed writes are sent.** Each EcoDrift control above was switched on a real EcoDrift 8.3
+(Wi-Fi module 04020B25) through this integration and back, and counted as confirmed only when the pump
+reported the new value in its own status: pump on/off, flow, frequency, feed pause, feed pause duration
+(04.-05.11.2026), wave mode, wave form, timer on/off and linkage (05.11.2026). The DC Runner has no
+write path at all; its switches and numbers appear as read-only sensors. If you own one and want to help,
+open an issue.
 
 ## Use at your own risk
 
@@ -86,6 +93,9 @@ State values are keys (`random`, `tide`, `independent` ...); the UI translates t
 
 - The pump pushes a status only when something changes, so the entities are "available" as long as
   the heartbeat is answered, even if no value changed for hours.
+- Switching the **timer on** makes the pump take over flow and frequency of the current timer slot within
+  a second; switching it **off again does not restore** the previous manual flow (pump behaviour, the app
+  does the same). Set the flow again after turning the timer off.
 - Anyone on your LAN can control the pump this way - the module hands out its passcode to whoever
   asks (manufacturer behaviour, same as the app). Keep IoT devices in a trusted network.
 - Flow and frequency below the pump's own minimum are clamped by the pump.

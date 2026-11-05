@@ -504,14 +504,10 @@ _ECODRIFT_WRITE = {
     "frequency": ("Frequency", (0, 100)),
     "feed_time": ("FeedTime", (1, 60)),
 }
-_DC_WRITE = {
-    "power": ("SwitchON", None),
-    "feed": ("FeedSwitch", None),
-    "timer": ("TimerON", None),
-    "speed": ("Motor_Speed", (0, 100)),
-    "feed_time": ("FeedTime", (1, 60)),
-}
-WRITE_MAP = {PRODUCT_ECODRIFT: _ECODRIFT_WRITE, PRODUCT_DC_RUNNER: _DC_WRITE}
+# Every EcoDrift write above was confirmed on a real EcoDrift 8.3 (module 04020B25, 05.11.2026):
+# the pump reported each new value in its own status. The DC Runner is read only until someone
+# confirms its writes on hardware - no write path exists for it on purpose.
+WRITE_MAP = {PRODUCT_ECODRIFT: _ECODRIFT_WRITE}
 
 
 # EcoDrift firmware 04020B25 ignores a write whose only flag is Flow (tested 05.11.2026);
@@ -525,7 +521,7 @@ def encode_values(product_key: str, values: dict, base: bytes | None = None) -> 
     schema = schema_for(product_key)
     table = WRITE_MAP.get(product_key)
     if schema is None or table is None:
-        raise ProtocolError(f"unknown product {product_key}")
+        raise ProtocolError(f"{product_key}: writing is not supported (read only)")
     values = dict(values)
     for key, (companion, attr) in _COMPANION.get(product_key, {}).items():
         if key in values and companion not in values:

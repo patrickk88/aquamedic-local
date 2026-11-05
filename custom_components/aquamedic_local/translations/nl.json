@@ -94,9 +94,6 @@
       "frequency": {
         "name": "Frequentie"
       },
-      "speed": {
-        "name": "Snelheid"
-      },
       "feed_time": {
         "name": "Duur voerpauze"
       }
@@ -129,6 +126,12 @@
       },
       "feed_end": {
         "name": "Einde voerpauze"
+      },
+      "speed": {
+        "name": "Snelheid"
+      },
+      "feed_time": {
+        "name": "Duur voerpauze"
       }
     },
     "binary_sensor": {
@@ -155,6 +158,15 @@
       },
       "fault_module_link": {
         "name": "Moduleverbinding"
+      },
+      "power": {
+        "name": "Pomp"
+      },
+      "feed": {
+        "name": "Voerpauze"
+      },
+      "timer": {
+        "name": "Timer"
       }
     }
   }
