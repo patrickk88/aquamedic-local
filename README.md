@@ -15,7 +15,7 @@ the pump's own cloud connection keep working; several clients can be logged in a
 
 | Device | Read | Control | Tested firmware |
 |---|---|---|---|
-| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / tide), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); writing tested with flow and frequency |
+| EcoDrift x.3 / SmartDrift x.1 (Gizwits product `63632f49…`) | on/off, wave mode, wave form, flow, frequency, feed pause and its duration, timer on/off, current timer mode with its flow/frequency, timer slots, linkage, seven fault flags | pump on/off, wave mode (classic / sine / random / constant), wave form (pulse / tide), flow %, frequency %, feed pause, feed pause duration, timer on/off, linkage | module 04020B25 (EcoDrift 4.3 and 8.3); writing tested with flow, frequency, feed pause and feed pause duration |
 | DC Runner x.3 return / skimmer pump (`00276aa0…`) | on/off, control mode, speed, feed pause, timer, current timer mode, timer slots, pump clock, fault flags | pump on/off, speed, feed pause, feed pause duration, timer on/off | **untested** - decoded from the public datapoint schema, testers welcome |
 
 Writing timer slots (the 48-slot schedule) is not offered yet; the slots are shown as attributes
