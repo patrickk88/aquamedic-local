@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.3.2 - 2026-11-07
+- Device page: the firmware version is no longer blanked for a moment when a pump reconnects.
+
 ## 0.3.1 - 2026-11-05
 - Wave form "tide" is shown as "Cross-flow" - the name the Aqua Medic app uses for alternating linked pumps.
 - README: linking two pumps (master / slave), synchronous and cross-flow operation, both confirmed on an

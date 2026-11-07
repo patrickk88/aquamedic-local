@@ -25,8 +25,9 @@ class PumpEntity(CoordinatorEntity[PumpCoordinator]):
             model=pr.MODEL_NAME.get(coordinator.product_key, "Gizwits pump"),
             name=coordinator.device_name,
             serial_number=coordinator.did,
-            sw_version=coordinator.firmware,
         )
+        if coordinator.firmware:  # unknown right after a reconnect - do not blank the stored version
+            self._attr_device_info["sw_version"] = coordinator.firmware
 
     @property
     def available(self) -> bool:
