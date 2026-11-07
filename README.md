@@ -106,6 +106,47 @@ Tested with an EcoDrift 8.3 as master and a 4.3 as slave:
   do not report which one is running, so Home Assistant cannot show the current turn.
 - To undo, set every pump back to **independent**.
 
+## Feed pause without stopping the pump
+
+The pump's own *Feed pause* stops it completely. In a tank with curious animals that can be a problem - here a
+sea urchin used the pause to crawl into the pump's opening. An alternative is a feed pause at minimum flow:
+switch the pump to **constant** at its lowest flow and put the previous values back afterwards. A script
+(entity ids are examples):
+
+```yaml
+alias: Feed pause at minimum flow
+mode: single
+sequence:
+  - variables:   # save first - with linked pumps save every pump before changing any
+      mode: "{{ states('select.ecodrift_8_3_wave_mode') }}"
+      flow: "{{ states('number.ecodrift_8_3_flow') | int }}"
+  - action: select.select_option
+    target: {entity_id: select.ecodrift_8_3_wave_mode}
+    data: {option: constant}
+  - wait_template: "{{ is_state('select.ecodrift_8_3_wave_mode', 'constant') }}"
+    timeout: 15
+  - action: number.set_value
+    target: {entity_id: number.ecodrift_8_3_flow}
+    data: {value: 30}
+  - delay: "00:10:00"
+  - action: number.set_value
+    target: {entity_id: number.ecodrift_8_3_flow}
+    data: {value: "{{ flow }}"}
+  - wait_template: "{{ states('number.ecodrift_8_3_flow') | int == flow }}"
+    timeout: 15
+  - action: select.select_option
+    target: {entity_id: select.ecodrift_8_3_wave_mode}
+    data: {option: "{{ mode }}"}
+```
+
+- **One change at a time:** wait until the pump reports a value before sending the next one. A write that
+  follows too quickly is built on the pump's previous status and can put the first change back.
+- **Minimum flow:** the EcoDrift 4.3 and 8.3 (module 04020B25) run at least 30 % - 25 % came back as 30 %.
+- **Linked pumps:** a slave follows the master's wave mode within seconds, so save the values of every pump
+  first, then change them; the slave's flow stays its own.
+- Start it a little before the feeder turns (e.g. a time trigger 30 s before the feeder's next feeding), so
+  the food is not blown away.
+
 ## Known quirks
 
 - The pump pushes a status only when something changes, so the entities are "available" as long as
