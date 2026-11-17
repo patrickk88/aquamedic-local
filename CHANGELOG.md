@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3 - 2026-11-17
+Packaging and documentation only, no change in the code.
+- Releases now carry the integration as a zip file (`aquamedic_local.zip`); HACS / the Marketplace
+  download that file instead of the source tree. The older releases got the same file, so every version
+  can still be installed.
+- README: icon and badges, screenshots, fold-out blocks, installation steps, a *Questions* section.
+
 ## 0.3.2 - 2026-11-07
 - Device page: the firmware version is no longer blanked for a moment when a pump reconnects.
 
